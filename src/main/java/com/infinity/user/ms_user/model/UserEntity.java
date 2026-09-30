@@ -2,6 +2,7 @@ package com.infinity.user.ms_user.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,16 @@ public class UserEntity {
     private String lastname;
     private String email;
     private String phone;
+
+@PrePersist
+
+public void generateId()  {
+    if(this.id == null) {
+        this.id = java.util.UUID.randomUUID().toString();
+
+}}
+
+
 
 
 }
