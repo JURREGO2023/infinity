@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
 @Data
 @Builder
@@ -18,6 +19,8 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
 
     @Id
+    @UuidGenerator
+
     private String id;
     private String document;
     private String name;
@@ -25,15 +28,11 @@ public class UserEntity {
     private String email;
     private String phone;
 
-@PrePersist
+/*@PrePersist
 
 public void generateId()  {
     if(this.id == null) {
         this.id = java.util.UUID.randomUUID().toString();
 
-}}
-
-
-
-
+}}*/
 }
